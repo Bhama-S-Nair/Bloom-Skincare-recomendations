@@ -74,8 +74,7 @@ A floating chatbox labeled “Skincare Assistant” appears in the bottom right.
 # Build Photos
 ![Team]![IMG_20250209_090944_899](https://github.com/user-attachments/assets/e8cad765-19e4-442a-b38a-951dfb475c68)
 
-![IMG_20250209_091118_604](https://github.com/user-attachments/assets/352ea706-b251-46d9-9291-ffffd45da864)
-![IMG_20250209_091323_222](https://github.com/user-attachments/assets/10848df1-280e-4452-881c-3371dea2bf1e)
+
 
 
 
