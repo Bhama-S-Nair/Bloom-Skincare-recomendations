@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 60px;
+            color: #ff69b4; /* Hot pink */
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #555; /* Soft gray */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bloom</h1>
+    <h2>Skincare Recommendations</h2>
+
+</body>
+</html>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            text-align: center;
+            padding: 20px;
+        }
+        .concerns-container {
+            display: flex;
+            flex-direction: column;
+            align-items: left; /* Centers the checkboxes and text */
+            gap: 4px; /* Minimal spacing between each concern */
+        }
+
+        .concern-item {
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Small gap between checkbox and text */
+            font-size: 16px; /* Ensures readability */
+        }
+
+        .concern-item input {
+            margin: 0;
+            width: 16px; /* Standard checkbox size */
+            height: 16px;
+        }
+
+
+
+
+        .container {
+            background: white; 
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #ff7eb3;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: auto; /* Allow flexible sizing */
+            font-size: 16px;
+        }
+        .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.chatbot-toggle {
+    background-color: #ff7eb3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chatbot {
+    display: none;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #ff7eb3;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.chat-body {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
+}
+
+.chat-body p {
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.bot-message {
+    background: #ffdde1;
+}
+
+.user-message {
+    background: #ee9ca7;
+    text-align: right;
+    margin-left: auto;
+}
+
+input {
+    width: 70%;
+    padding: 8px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Find Your Skincare Products</h2>
+        
+        <label for="skinType">Select your skin type:</label>
+        <select id="skinType">
+            <option value="Dry">Dry</option>
+            <option value="Normal">Normal</option>
+            <option value="Oily">Oily</option>
+            <option value="Combination">Combination</option>
+            <option value="Sensitive">Sensitive</option>
+        </select><br><br>
+        
+        <label>Select your concerns:</label><br>
+        
+<div class="concerns-container">
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Acne"> Acne</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Dark Spots"> Dark Spots</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Pigmentation"> Pigmentation</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Texture/Aging"> Texture/Aging</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Dark Circles"> Dark Circles</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Tan"> Tan</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Open Pores"> Open Pores</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Acne Scars/Marks"> Acne Scars/Marks</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Wrinkles"> Wrinkles</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Blackheads"> Blackheads</label>
+    <label class="concern-item"><input type="checkbox" name="concerns" value="Whiteheads"> Whiteheads</label>
+</div><br>
+
+        
+        <button onclick="getRecommendations()">Get Recommendations</button>
+        <h3>Recommended Products:</h3>
+        <div id="results"></div>
+    </div>
+    <div class="chatbot-container">
+    <button class="chatbot-toggle" onclick="toggleChatbot()" aria-label="Chat with us">💬 Chat with us</button>
+
+    <div class="chatbot" id="chatbot">
+        <div class="chat-header">
+            <span>Skincare Assistant</span>
+            <button type="button" onclick="toggleChatbot()">✖</button>
+
+        </div>
+        <div class="chat-body" id="chatBody">
+            <p class="bot-message">Hello! Ask me anything about skincare.</p>
+        </div>
+        <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button type="button" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+<script>
+function toggleChatbot() {
+    let chatbot = document.getElementById("chatbot");
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        chatbot.style.display = "block";
+    } else {
+        chatbot.style.display = "none";
+    }
+}
+
+function sendMessage() {
+    let inputField = document.getElementById("chatInput");
+    let message = inputField.value.trim();
+    if (message === "") {
+        inputField.placeholder = "Please enter a message!";
+        return;
+    }
+
+
+    addMessage("user", message);
+    inputField.value = "";
+
+    setTimeout(() => {
+        let response = getBotResponse(message);
+        addMessage("bot", response);
+    }, 500);
+}
+
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
+
+function addMessage(sender, message) {
+    let chatBody = document.getElementById("chatBody");
+    let messageElement = document.createElement("p");
+    messageElement.classList.add(sender === "user" ? "user-message" : "bot-message");
+    messageElement.textContent = message;
+    chatBody.appendChild(messageElement);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getBotResponse(userMessage) {
+    let lowerMessage = userMessage.toLowerCase();
+
+    // Acne-related queries
+    if (lowerMessage.includes("acne")) {
+        return "For acne-prone skin, use The Derma Co 2% Salicylic Acid Face Wash and The Ordinary Niacinamide 10% + Zinc 1%.";
+    } else if (lowerMessage.includes("pimples")) {
+        return "To reduce pimples, try benzoyl peroxide gel (like Persa-Gel 10) and a gentle cleanser like Cetaphil.";
+    } else if (lowerMessage.includes("blackheads")) {
+        return "For blackheads, use Paula’s Choice 2% BHA Liquid Exfoliant or The Ordinary Salicylic Acid 2%.";
+    } else if (lowerMessage.includes("whiteheads")) {
+        return "For whiteheads, try a BHA exfoliant like The Inkey List Salicylic Acid Cleanser.";
+
+    // Pigmentation & Dark Spots
+    } else if (lowerMessage.includes("dark spots")) {
+        return "To fade dark spots, use Minimalist 10% Niacinamide Serum and Alpha Arbutin 2% + HA.";
+    } else if (lowerMessage.includes("pigmentation")) {
+        return "For pigmentation, try The Ordinary Alpha Arbutin 2% + HA and a Vitamin C serum.";
+    } else if (lowerMessage.includes("melasma")) {
+        return "For melasma, dermatologists recommend Hydroquinone (consult a doctor) or Tranexamic Acid serums.";
+
+    // Skin Type & Concerns
+    } else if (lowerMessage.includes("oily skin")) {
+        return "For oily skin, use The Ordinary Niacinamide 10% + Zinc 1% and a mattifying moisturizer.";
+    } else if (lowerMessage.includes("dry skin")) {
+        return "For dry skin, try CeraVe Hydrating Cleanser and The Ordinary Hyaluronic Acid 2% + B5.";
+    } else if (lowerMessage.includes("combination skin")) {
+        return "For combination skin, use The Inkey List Niacinamide and COSRX Snail Mucin Essence.";
+    } else if (lowerMessage.includes("sensitive skin")) {
+        return "For sensitive skin, go for Cetaphil Gentle Cleanser and La Roche-Posay Toleriane Ultra Moisturizer.";
+    } else if (lowerMessage.includes("open pores")) {
+        return "To minimize pores, use Niacinamide serums and clay masks like Innisfree Super Volcanic Pore Clay Mask.";
+    } else if (lowerMessage.includes("dull skin")) {
+        return "For dull skin, try Vitamin C serums and chemical exfoliants like Pixi Glow Tonic.";
+
+    // Anti-Aging & Skin Firming
+    } else if (lowerMessage.includes("wrinkles") || lowerMessage.includes("aging")) {
+        return "For anti-aging, use Olay Regenerist Retinol24 Night Moisturizer and The Ordinary Buffet + Copper Peptides.";
+    } else if (lowerMessage.includes("fine lines")) {
+        return "For fine lines, try The Inkey List Retinol Serum and a good peptide moisturizer.";
+    } else if (lowerMessage.includes("sagging skin")) {
+        return "To tighten skin, use Peptides, Retinol, and Vitamin C serums regularly.";
+
+    // Dark Circles & Eye Care
+    } else if (lowerMessage.includes("dark circles")) {
+        return "For dark circles, try The Ordinary Caffeine Solution 5% + EGCG or Vitamin K eye cream.";
+    } else if (lowerMessage.includes("puffy eyes")) {
+        return "For puffy eyes, use a cold compress and caffeine-infused eye creams.";
+
+    // Sun Protection
+    } else if (lowerMessage.includes("best sunscreen")) {
+        return "A great sunscreen is La Roche-Posay Anthelios SPF 50+ or Neutrogena Ultra Sheer SPF 50.";
+    } else if (lowerMessage.includes("sunburn")) {
+        return "For sunburn, apply Aloe Vera gel and avoid direct sun exposure.";
+    } else if (lowerMessage.includes("tan removal")) {
+        return "For tan removal, try Lotus Herbals Safe Sun De-Tan or a Vitamin C serum.";
+
+    // General Skincare Routine
+    } else if (lowerMessage.includes("best moisturizer")) {
+        return "For hydration, try Neutrogena Hydro Boost (oily skin) or CeraVe Moisturizing Cream (dry skin).";
+    } else if (lowerMessage.includes("best face wash")) {
+        return "For face wash, use Cetaphil Gentle Cleanser (sensitive skin) or The Derma Co AHA-BHA Cleanser (acne-prone skin).";
+    } else if (lowerMessage.includes("best toner")) {
+        return "A great toner is Pixi Glow Tonic (for glow) or Paula's Choice 2% BHA (for acne and blackheads).";
+    } else if (lowerMessage.includes("best serum")) {
+        return "For hydration, use The Ordinary Hyaluronic Acid. For acne, try Niacinamide or Salicylic Acid.";
+    } else if (lowerMessage.includes("best night cream")) {
+        return "A good night cream is Olay Regenerist Retinol24 or The Ordinary Natural Moisturizing Factors + HA.";
+    } else if (lowerMessage.includes("best exfoliator")) {
+        return "For exfoliation, try Paula’s Choice 2% BHA for acne or The Ordinary Glycolic Acid 7% for glow.";
+    } else if (lowerMessage.includes("best mask")) {
+        return "For oily skin, use Innisfree Volcanic Clay Mask. For hydration, try Laneige Water Sleeping Mask.";
+    } else if (lowerMessage.includes("best lip balm")) {
+        return "For chapped lips, try Laneige Lip Sleeping Mask or Vaseline Lip Therapy.";
+
+    // Miscellaneous Skincare
+    } else if (lowerMessage.includes("how to layer skincare")) {
+        return "A basic order: Cleanser -> Toner -> Serum -> Moisturizer -> Sunscreen (AM) / Retinol (PM).";
+    } else if (lowerMessage.includes("best skincare brand")) {
+        return "Top skincare brands include The Ordinary, CeraVe, La Roche-Posay, and Paula’s Choice.";
+    } else if (lowerMessage.includes("home remedies for acne")) {
+        return "Try a honey and cinnamon mask or tea tree oil (diluted) as a spot treatment.";
+    } else if (lowerMessage.includes("is double cleansing necessary")) {
+        return "Double cleansing is helpful if you wear sunscreen/makeup. Start with an oil cleanser, then a water-based cleanser.";
+    } else if (lowerMessage.includes("how often should i exfoliate")) {
+        return "For normal skin, exfoliate 2-3 times a week. For sensitive skin, exfoliate once a week.";
+    } else if (lowerMessage.includes("best body lotion")) {
+        return "For dry skin, try Nivea Shea Butter Body Lotion. For lightweight hydration, use Vaseline Aloe Soothe.";
+    } else if (lowerMessage.includes("best body wash")) {
+        return "For gentle cleansing, use Dove Deep Moisture Body Wash or CeraVe Hydrating Body Wash.";
+    } else if (lowerMessage.includes("how to remove makeup properly")) {
+        return "Use a cleansing balm (like Heimish All Clean Balm) followed by a gentle face wash.";
+
+    // Default Response
+    } else {
+        return "I'm still learning! Try asking about specific skincare concerns like 'best toner' or 'how to treat acne'.";
+    }
+}
+
+</script>
+
+
+    <script>
+        function getRecommendations() {
+            let skinTypeElement = document.getElementById("skinType");
+            if (!skinTypeElement) return;
+            let skinType = skinTypeElement.value;
+
+            let checkboxes = document.querySelectorAll('input[name="concerns"]:checked');
+            let concerns = Array.from(checkboxes).map(cb => cb.value);
+            
+            if (concerns.length === 0) {
+                document.getElementById("results").innerHTML = "<p style='color:red;'>Please select at least one concern.</p>";
+                return;
+            }
+
+            let recommendations = {
+                "Dry": {
+                    "Acne": "Cetaphil Gentle Cleanser, Plum 10% Niacinamide Face Serum",
+                    "Dark Spots": "Zeeglow Glycolic Acid, The Derma Co 3% Kojic Acid Gel",
+                    "Pigmentation": "Minimalist Alpha Arbutin 2%",
+                    "Texture/Aging": "Olay Regenerist Micro-Sculpting Cream",
+                    "Dark Circles": "Mamaearth Under Eye Cream",
+                    "Tan": "Lotus Herbals Safe Sun De-Tan",
+                    "Open Pores": "Dot & Key Pore Refining Toner",
+                    "Wrinkles": "L'Oreal Revitalift Night Cream",
+                    "Acne Scars/Marks": "Mederma Advanced Scar Gel",
+                    "Blackheads": "The Derma Co 2% BHA Exfoliant",
+                    "Whiteheads": "Plum Green Tea Mask"
+                },
+                "Combination": {
+                    "Acne": "Plum Green Tea Face Wash, The Derma Co 2% Salicylic Acid Serum",
+                    "Dark Spots": "Minimalist 10% Niacinamide, The Ordinary Alpha Arbutin 2%",
+                    "Pigmentation": "Kaya Pigmentation Reducing Complex, The Derma Co Kojic Acid Serum",
+                    "Texture/Aging": "Olay Regenerist Micro-Sculpting Cream, The Ordinary Lactic Acid 10%",
+                    "Dark Circles": "Mamaearth Under Eye Cream, The Derma Co 5% Caffeine Serum",
+                    "Tan": "Lotus Herbals Safe Sun De-Tan, Plum Vitamin C Serum",
+                    "Open Pores": "Dot & Key Pore Refining Toner, Paula's Choice BHA Liquid Exfoliant",
+                    "Wrinkles": "Olay Regenerist Night Cream, L'Oreal Retinol Serum",
+                    "Acne Scars/Marks": "Mederma Advanced Scar Gel, Minimalist Salicylic Acid 2%",
+                    "Blackheads": "The Derma Co 2% BHA Exfoliant, Plum Green Tea Mask",
+                    "Whiteheads": "The Derma Co 2% BHA Exfoliant, Plum Green Tea Mask"
+                },
+                "Sensitive": {
+                    "Acne": "Cetaphil Gentle Cleanser, The Derma Co 2% Salicylic Acid Serum",
+                    "Dark Spots": "Minimalist 10% Niacinamide, Dot & Key Dark Spot Corrector",
+                    "Pigmentation": "The Ordinary Alpha Arbutin 2% + HA, Kaya Pigmentation Reducing Complex",
+                    "Texture/Aging": "Neutrogena Hydro Boost, The Ordinary Glycolic Acid 7%",
+                    "Dark Circles": "Mamaearth Under Eye Cream, The Ordinary Caffeine Solution 5%",
+                    "Tan": "Plum Vitamin C Serum, Lotus Herbals De-Tan Pack",
+                    "Open Pores": "Dot & Key Pore Refining Toner, Paula's Choice BHA Liquid Exfoliant",
+                    "Wrinkles": "L'Oreal Revitalift Night Cream, Olay Retinol 24 Night Moisturizer",
+                    "Acne Scars/Marks": "The Derma Co 10% Niacinamide Serum, Mederma Advanced Scar Gel",
+                    "Blackheads": "Paula's Choice 2% BHA Exfoliant, The Ordinary Salicylic Acid 2%",
+                    "Whiteheads": "Paula's Choice 2% BHA Exfoliant, The Ordinary Salicylic Acid 2%"
+                },
+                "Normal": {
+                    "Acne": "Neutrogena Oil-Free Acne Wash, Plum Green Tea Renewed Clarity Night Gel",
+                    "Dark Spots": "Dot & Key Dark Spot Corrector, The Ordinary Alpha Arbutin 2% + HA",
+                    "Pigmentation": "Kaya Pigmentation Reducing Complex, The Derma Co Kojic Acid Serum",
+                    "Texture/Aging": "Olay Regenerist, The Ordinary Glycolic Acid 7%",
+                    "Dark Circles": "Mamaearth Under Eye Cream, The Ordinary Caffeine Solution 5%",
+                    "Tan": "Lotus Herbals De-Tan Pack, Plum Vitamin C Face Serum",
+                    "Open Pores": "Dot & Key Pore Refining Toner, The Derma Co 2% Niacinamide Toner",
+                    "Wrinkles": "Olay Regenerist Night Cream, L'Oreal Retinol Serum",
+                    "Acne Scars/Marks": "Mederma Advanced Scar Gel, Minimalist Salicylic Acid 2%",
+                    "Blackheads": "Paula's Choice BHA Liquid Exfoliant, The Derma Co 2% Salicylic Acid Serum",
+                    "Whiteheads": "Paula's Choice 2% BHA Exfoliant"
+               },
+               "Oily": {
+                    "Acne": "The Derma Co 2% Salicylic Acid Face Wash, Plum Green Tea Night Gel",
+                    "Dark Spots": "Minimalist 10% Niacinamide, Dot & Key Dark Spot Corrector",
+                    "Pigmentation": "The Ordinary Alpha Arbutin 2% + HA, Kaya Pigmentation Reducing Complex",
+                    "Texture/Aging": "Neutrogena Hydro Boost, The Ordinary Glycolic Acid 7%",
+                    "Dark Circles": "Mamaearth Under Eye Cream, The Ordinary Caffeine Solution 5%",
+                    "Tan": "Plum Vitamin C Serum, Lotus Herbals De-Tan Pack",
+                    "Open Pores": "Dot & Key Pore Refining Toner, Paula's Choice BHA Liquid Exfoliant",
+                    "Wrinkles": "L'Oreal Revitalift Night Cream, Olay Retinol 24 Night Moisturizer",
+                    "Acne Scars/Marks": "The Derma Co 10% Niacinamide Serum, Mederma Advanced Scar Gel",
+                    "Blackheads": "The Ordinary Salicylic Acid 2%",
+                    "Whiteheads": "Paula's Choice 2% BHA Exfoliant"
+                }
+            };
+
+            let resultText = "";
+            concerns.forEach(concern => {
+                let skinTypeData = recommendations[skinType] || {};
+                
+                    let product = skinTypeData[concern] || "No recommendation available";
+                    resultText += `<p><strong>${concern}:</strong> ${product}</p>`;
+            });
+
+            document.getElementById("results").innerHTML = resultText;
+        }   
+    </script>
+</body>
+</html>
