@@ -1,100 +1,97 @@
-# [Project Name] 🎯
+# BLOOM 🎯
 
 
-## Basic Details
-### Team Name: [Name]
+## Skincare Recomendation app
+### Team Name: MIT26
 
 
 ### Team Members
-- Member 1: [Bhama S Nair] - [Mahaguru institute of technology]
-- Member 2: [Nanma S] - [Mahaguru institute of technology]
+- Member 1: Bhama S Nair - Mahaguru institute of technology
+- Member 2: Nanma S - Mahaguru institute of technology
   
 
-### Hosted Project Link
-[mention your project hosted project link here]
-
 ### Project Description
-[A skincare recomendation app To address the challenge of selecting the right skincare products based on individual skin types and concerns![Uploading image.png…]()
-]
+[A skincare recomendation app To address the challenge of selecting the right skincare products based on individual skin types and concerns![]()
+]![Screenshot 2025-02-09 075126](https://github.com/user-attachments/assets/94d775dd-197c-41ce-8ea2-59b164d5fe4c)
+
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+In India, women face significant challenges in finding the right skincare products suited to their unique skin types and concerns. With diverse skin tones, climatic conditions, and a vast range of available products, making an informed choice becomes overwhelming. Many women struggle with identifying products that work for their specific skin concerns—such as acne, pigmentation, dryness, or sensitivity—leading to trial-and-error purchases that waste time and money. Additionally, a lack of personalized guidance and misleading product claims further complicate the decision-making process.
+
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+To address the challenge of selecting the right skincare products based on individual skin types and concerns, we developed a web-based skincare recommendation application BLOOM to analyze user inputs, such as skin type, concerns (e.g., acne, dryness, sensitivity), and preferences.
+
+
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Languages used:HTML, CSS, JavaScript
+- Tools used:VS Code
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- List main components:Web server (AWS, Google Cloud, or Localhost
+- List specifications:Minimum 4GB RAM, 2-core processor
+- List tools required:Server for hosting
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+git clone https://github.com/your-repo/bloom-skincare.git
+cd bloom-skincare
+
 
 # Run
-[commands]
+npm start
 
-### Project Documentation
-For Software:
+
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 2025-02-09 074611](https://github.com/user-attachments/assets/366d1ea3-dd45-44b7-a861-2423ed4e086b)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*The UI of Bloom is designed to be user-friendly, visually appealing, and functional for users looking for skincare recommendations. 
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+*
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![Screenshot 2025-02-09 075457](https://github.com/user-attachments/assets/b709bad8-5100-4cdf-a648-177de7179531)
+hot2]
 
-For Hardware:
+*After submitting their skin concerns, the UI displays a list of recommended products tailored to their selection.
+The products are categorized under each concern, making it easy to understand why they are recommended.
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+*
+
+![Screenshot 2025-02-09 080132](https://github.com/user-attachments/assets/0d68d94e-cf44-4697-8f72-0113ced6d68c)
+t3]
+A floating chatbox labeled “Skincare Assistant” appears in the bottom right.
+
+
+
+
 
 # Build Photos
-![Team](Add photo of your team here)
+![Team]![IMG_20250209_090944_899](https://github.com/user-attachments/assets/e8cad765-19e4-442a-b38a-951dfb475c68)
+
+![IMG_20250209_091118_604](https://github.com/user-attachments/assets/352ea706-b251-46d9-9291-ffffd45da864)
+![IMG_20250209_091323_222](https://github.com/user-attachments/assets/10848df1-280e-4452-881c-3371dea2bf1e)
 
 
-![Components](Add photo of your components here)
-*List out all components shown*
 
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+# 
 
-# Additional Demos
-[Add any extra demo materials/links]
+https://github.com/user-attachments/assets/220c9dfd-0710-44c1-8c7f-abce9c9506df
 
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+Video
+
+*The working of Bloom*
+
+
+
+
 
 ---
 Made with ❤️ at TinkerHub
