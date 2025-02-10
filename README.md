@@ -47,7 +47,7 @@ npm start
 
 
 
-# Screenshots (Add at least 3)
+# Screenshots
 ![Screenshot 2025-02-09 074611](https://github.com/user-attachments/assets/366d1ea3-dd45-44b7-a861-2423ed4e086b)
 
 *The UI of Bloom is designed to be user-friendly, visually appealing, and functional for users looking for skincare recommendations. 
