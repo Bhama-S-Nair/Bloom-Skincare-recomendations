@@ -11,8 +11,8 @@
   
 
 ### Project Description
-[A skincare recomendation app To address the challenge of selecting the right skincare products based on individual skin types and concerns![]()
-]![Screenshot 2025-02-09 075126](https://github.com/user-attachments/assets/94d775dd-197c-41ce-8ea2-59b164d5fe4c)
+A skincare recomendation app To address the challenge of selecting the right skincare products based on individual skin types and concerns![]()
+![Screenshot 2025-02-09 075126](https://github.com/user-attachments/assets/94d775dd-197c-41ce-8ea2-59b164d5fe4c)
 
 
 ### The Problem statement
